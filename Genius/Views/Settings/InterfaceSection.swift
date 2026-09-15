@@ -26,14 +26,14 @@ struct InterfaceSection: View {
 				.disableLiquidGlass,
 				value: $disableLiquidGlass,
 				key: .disableLiquidGlass,
-				if: { if #available(macOS 26, *) { interfaceMode >= .normal } else { false } }(),
+				if: NSAppearance.disableLiquidGlassAvailable && interfaceMode >= .normal,
 			)
 			.onChange(of: disableLiquidGlass) { _ in RelaunchDialog.present() }
 			SettingToggle(
 				.hideIconsInMenuBar,
 				value: $hideIconsInMenuBar,
 				key: .hideIconsInMenuBar,
-				if: { if #available(macOS 26, *) { interfaceMode >= .advanced } else { false } }(),
+				if: NSMenuItem.hideIconsInMenuBarAvailable && interfaceMode >= .advanced,
 			)
 			.id(disableLiquidGlass)
 			.onChange(of: hideIconsInMenuBar) { _ in RelaunchDialog.present() }

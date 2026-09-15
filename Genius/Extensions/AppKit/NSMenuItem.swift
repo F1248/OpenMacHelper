@@ -7,8 +7,19 @@ import AppKit
 import Foundation
 import ObjectiveC
 
-@available(macOS 26, *)
 extension NSMenuItem {
+
+	static var hideIconsInMenuBarAvailable: Bool {
+		if #available(macOS 26, *) {
+			if #unavailable(macOS 27) {
+				true
+			} else {
+				false
+			}
+		} else {
+			false
+		}
+	}
 
 	@objc var none: NSImage? { nil }
 

@@ -22,6 +22,7 @@ See LICENSE.txt for license information.
 
 - Fix `SettingPicker` on macOS 27
 - Fix Maintenance → Install app updates from the App Store if setting was never changed
+- Fix settings Disable Liquid Glass and Hide icons in menu bar on macOS 27
 
 ### Security
 

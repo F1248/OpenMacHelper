@@ -23,8 +23,10 @@ struct GeniusApp: App {
 	}
 
 	init() {
-		if #available(macOS 26, *) {
+		if NSAppearance.disableLiquidGlassAvailable {
 			if Defaults[.disableLiquidGlass] { NSAppearance.disableLiquidGlass() }
+		}
+		if NSMenuItem.hideIconsInMenuBarAvailable {
 			if Defaults[.hideIconsInMenuBar] { NSMenuItem.hideIconsInMenuBar() }
 		}
 		NSWindow.allowsAutomaticWindowTabbing = false

@@ -7,8 +7,19 @@ import AppKit
 import Foundation
 import ObjectiveC
 
-@available(macOS 26, *)
 extension NSAppearance {
+
+	static var disableLiquidGlassAvailable: Bool {
+		if #available(macOS 26, *) {
+			if #unavailable(macOS 27) {
+				true
+			} else {
+				false
+			}
+		} else {
+			false
+		}
+	}
 
 	@objc var hasLiquidGlass: Bool { false }
 
